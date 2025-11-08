@@ -1,34 +1,14 @@
-import * as React from "react"
-import { cva } from "class-variance-authority";
+import React from "react";
+import { motion } from "framer-motion";
 
-import { cn } from "@/lib/utils"
-
-const badgeVariants = cva(
-  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-  {
-    variants: {
-      variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        outline: "text-foreground",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-)
-
-function Badge({
-  className,
-  variant,
-  ...props
-}) {
-  return (<div className={cn(badgeVariants({ variant }), className)} {...props} />);
+export default function Badge({ children, icon: Icon }) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-xl border border-white/15 text-[13px] font-medium text-white/80 hover:border-white/25 transition-colors"
+    >
+      {Icon && <Icon className="w-4 h-4 text-[#356AE6]" />}
+      {children}
+    </motion.div>
+  );
 }
-
-export { Badge, badgeVariants }

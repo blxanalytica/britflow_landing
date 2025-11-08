@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Play, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import GradientButton from "../ui/GradientButton";
-import Badge from "../ui/Badge";
+import Badge from "../ui/badge"; // Changed from "../ui/Badge" to "../ui/badge"
 import ScrollHint from "../ui/ScrollHint";
 
 export default function Hero({ onOpenSignup }) {
